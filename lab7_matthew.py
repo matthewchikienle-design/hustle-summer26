@@ -1,4 +1,6 @@
 
+import random
+# 
 # ============================================================
 # LAB 7  -  MY OWN ORDERING APP
 # Week 7  -  Hack the Hood
@@ -26,8 +28,7 @@ class Games:
         self.name = name
         self.price = price
 
-    def add(self, item):
-        self.items.append(item)
+    
 
 # TICKET 3: The price guard
 #   Add a set_price method INSIDE your class above.
@@ -45,8 +46,8 @@ class Games:
 #   A new class that copies (inherits from) your first class.
 #   Write it below.
 class disc(Games):
-    def deliver(self):
-        print("Sending...")
+    pass
+    
 
 
 # TICKET 5: Each item's own action
@@ -56,6 +57,8 @@ class disc(Games):
 
     def deliver(self):
         print("Downloading...")
+    def deliver(self):
+        print("Sending...")
 
 
 # TICKET 2: Make your real items
@@ -65,6 +68,11 @@ class disc(Games):
 item1 = disc("Elden Ring", 60)
 item2 = Games(" Minecraft ", 30)
 
+item1.set_price(45)
+print("Sale! " + item1.name + "is now $" + str(item1.price))
+
+welcomes = ["Welcome!", "Hello! Ready to order?", "Glad you are here!"]
+print(random.choice(welcomes))
 
 # ============================================================
 # DAY 2  -  BUILD YOUR STORE
@@ -77,6 +85,7 @@ item2 = Games(" Minecraft ", 30)
 class Cart:
     def __init__(self):
         self.items = []
+
     def add(self, item):
         self.items.append(item)
 
@@ -106,6 +115,9 @@ cart = Cart()
 # TICKET 8: Let customers shop
 #   Use input() and a loop to keep adding picks until "done".
 #   PREDICT what happens when you pick 1: it should choose the game in item 1 
+print("---GAMES---")
+for number, item in store.items():
+     print(number + ": " + item.name + " - $" + str(item.price))
 
 while True:
     choice = input("Pick 1 , 2 , or 'done': ")
@@ -113,16 +125,21 @@ while True:
     if choice == "done":
         break
 
-    if choice in store:
+    elif choice in store:
         cart.add(store[choice])
-        print(store[choice].name + "added")
+        print(store[choice].name + " added!")
     else:
-        print("This Choice does not exist!")
+        print("Sorry, that's not on the menu!")
 
 
 # TICKET 10: Test the whole app
 #   Run it start to finish. PREDICT the full output first,
 #   then check it against what really prints.
+print("---RECEIPT---")
+for item in cart.items:
+    print(item.name + " - $" + str(item.price))
+
+print("You bought " + str(len(cart.items)) + " items.")
 
 cart.checkout()
 
