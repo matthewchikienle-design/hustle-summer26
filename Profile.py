@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 full_name = "Matthew Le"
 print(full_name)
 
@@ -17,5 +16,3 @@ favorites = {
   "hobby":"working out"
 }
 print(favorites)
-=======
->>>>>>> 16a720560c94f20b3bd1289c3fd0878e9c11e8bc

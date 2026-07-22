@@ -46,7 +46,8 @@ while True:
 def can_access(age):
     if age >=13:
         return True
-    else: return False 
+    else: 
+        return False 
     #List of Ages
     ages = [17, 11, 25, 13, 9]
 if can_access(age):
@@ -70,3 +71,5 @@ def signup_report(age_list):
       
 
 signup_report(signups)
+#prediction: 4 should approve out of 6
+#Explain: Lists, Functions, loops, string, operators
